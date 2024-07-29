@@ -44,3 +44,28 @@ class ChemicalReactionRewriter:
             prod = prod[:-1]
             self.chemical_formulas_dict[prod] = 0
             self.products_list.append(prod)
+
+    def assign_coefficients_to_chemical_formulas_in_equation(self):
+
+        for index, chemical_formula in enumerate(
+            list(self.chemical_formulas_dict.keys())
+        ):
+            self.chemical_formulas_dict[chemical_formula] = self.equation_solution[
+                index
+            ]
+
+        for reactant in self.reactants_list:
+            if self.chemical_formulas_dict[reactant] == 1:
+                self.assigned_reactants_list.append(reactant)
+            else:
+                self.assigned_reactants_list.append(
+                    f"{self.chemical_formulas_dict[reactant]} {reactant}"
+                )
+
+        for product in self.products_list:
+            if self.chemical_formulas_dict[product] == 1:
+                self.assigned_products_list.append(product)
+            else:
+                self.assigned_products_list.append(
+                    f"{self.chemical_formulas_dict[product]} {product}"
+                )
