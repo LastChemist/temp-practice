@@ -21,3 +21,9 @@ class ChemicalReactionRewriter:
             file_path=rf"{self.parent_folder_directory}"
         )
         self.json_handler_object.read()
+
+    def load_equation_solution(self):
+        self.equation_solution = sympify(
+            self.json_handler_object.content["equation_solution"]
+        )
+        
