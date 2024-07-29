@@ -26,4 +26,21 @@ class ChemicalReactionRewriter:
         self.equation_solution = sympify(
             self.json_handler_object.content["equation_solution"]
         )
-        
+
+    def load_chemical_formulas_dictionary(self, chemical_equation: str):
+        # epo stands for equation parser object
+        epo = equationparser.EquationParser(chemical_equation=chemical_equation)
+        epo.parse()
+
+        # Note : if you uncomment the followings the output
+        for reac in epo.reactants_list:
+            reac = reac[1:]
+            reac = reac[:-1]
+            self.chemical_formulas_dict[reac] = 0
+            self.reactants_list.append(reac)
+
+        for prod in epo.products_list:
+            prod = prod[1:]
+            prod = prod[:-1]
+            self.chemical_formulas_dict[prod] = 0
+            self.products_list.append(prod)
