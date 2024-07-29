@@ -14,3 +14,7 @@ class Handler:
     def write(self, content: dict = content):
         with open(self.file_path, "w") as file:
             json.dump(content, file)
+
+    def read(self):
+        with open(self.file_path, "r") as file:
+            self.content = json.load(file)
