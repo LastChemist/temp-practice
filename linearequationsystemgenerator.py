@@ -66,4 +66,4 @@ class LinearEquationsSystemGenerator:
         self.present_elements_in_reaction = element_list
         self.demand_for_variables_to_solve_count = len(self.reactants_list) + len(
             self.products_list
-        )
+        ) # Junior code, fix the formula
