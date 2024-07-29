@@ -61,3 +61,9 @@ handler_object.update(key="equation_solution",value=str(equation_solution))
             "w",
         ) as solver_file:
             solver_file.write(file_content)
+
+    def execute_solver_file(self):
+        with open(
+            rf"{self.current_directory}\linear_equations_system_solver.automatic.py"
+        ) as file:
+            exec(file.read())
