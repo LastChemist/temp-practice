@@ -54,10 +54,10 @@ class LinearEquationsSystemGenerator:
         products_list: list[str] = self.products_list
 
         for reactant in reactants_list:
-            temp_list.append(self.presentElementsInFormula(chemical_formula=reactant))
+            temp_list.append(self.present_elements_in_formula(chemical_formula=reactant))
 
         for product in products_list:
-            temp_list.append(self.presentElementsInFormula(chemical_formula=product))
+            temp_list.append(self.present_elements_in_formula(chemical_formula=product))
 
         for sublist in temp_list:
             element_list.extend(sublist)
@@ -84,3 +84,30 @@ class LinearEquationsSystemGenerator:
             removing_index = i
 
         self.parameter_symbols = self.parameter_symbols[removing_index + 1 :]
+
+    def generate_equations_system(self) -> list:
+       
+        self.assignParameter()
+        equations_list: list[str] = []
+        equation: str = ""
+        left_hand: str = ""
+        right_hand: str = ""
+
+        for element in self.present_elements_in_reaction:
+            for reactant in self.reactants_list:
+                if element in self.parsed_reactants[reactant]:
+                    left_hand += f"{self.parsed_reactants[reactant][element]}*{self.reactants_assigned_parameter_dict[reactant]}+"
+
+            for product in self.products_list:
+                if element in self.parsed_products[product]:
+                    right_hand += f"{self.parsed_products[product][element]}*{self.products_assigned_parameter_dict[product]}-"
+
+            left_hand = left_hand[:-1]
+            right_hand = right_hand[:-1]
+
+            equation = f"{left_hand}-{right_hand}"
+            equations_list.append(equation)
+            left_hand = ""
+            right_hand = ""
+
+        return equations_list
