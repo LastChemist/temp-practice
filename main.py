@@ -15,6 +15,3 @@ def execute(input_chemical_equation: str) -> None:
         chemical_equation=input_chemical_equation
     )
 
-print(execute(input_chemical_equation="N2 + H2 = N2H4"))
-
-
