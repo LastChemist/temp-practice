@@ -90,12 +90,12 @@ class EquationParser:
         for reactant in self.reactants_list:
             self.parsed_reactants[reactant] = elementcounter.ElementCounter(
                 chemical_formula=reactant
-            ).parseFormula()
+            ).parse_formula()
 
         for product in self.products_list:
             self.parsed_products[product] = elementcounter.ElementCounter(
                 chemical_formula=product
-            ).parseFormula()
+            ).parse_formula()
 
     def parse(self):
         """
