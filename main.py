@@ -9,9 +9,12 @@ def execute(input_chemical_equation: str) -> None:
             chemical_equation=input_chemical_equation
         )
     )
-    linear_equations_system_object.generateEquationAndSaveSolverFile()
-    linear_equations_system_object.executeSolverFile()
-    return chemicalequationrewriter.ChemicalReactionRewriter().executeRewriter(
+    linear_equations_system_object.generate_equations_and_build_solver_file()
+    linear_equations_system_object.execute_solver_file()
+    return chemicalequationrewriter.ChemicalReactionRewriter().execute_rewriter(
         chemical_equation=input_chemical_equation
     )
+
+print(execute(input_chemical_equation="N2 + H2 = N2H4"))
+
 

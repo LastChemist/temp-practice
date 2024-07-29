@@ -71,10 +71,10 @@ class ChemicalReactionRewriter:
                 )
 
     def execute_rewriter(self, chemical_equation: str):
-        self.loadEquationSolutionInformation()
+        self.load_equation_solution()
         # self.substituteSymbolsInSolution()
-        self.loadChemicalFormulasDictionary(chemical_equation=chemical_equation)
-        self.assignCoefficientsToChemicalFormulas()
+        self.load_chemical_formulas_dictionary(chemical_equation=chemical_equation)
+        self.assign_coefficients_to_chemical_formulas_in_equation()
 
         reactants_string: str = ""
         products_string: str = ""

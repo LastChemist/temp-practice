@@ -16,7 +16,7 @@ class LinearEquationSystemSolverFileMaker:
         )
 
         self.system_of_linear_equations = (
-            equation_generator_object.generateEquationSystem()
+            equation_generator_object.generate_equations_system()
         )
         self.num_of_variables = (
             equation_generator_object.demand_for_variables_to_solve_count
@@ -37,7 +37,7 @@ class LinearEquationSystemSolverFileMaker:
 from sympy import symbols
 from sympy.solvers.solveset import linsolve
 import os
-from JsonHandler import Handler
+from util.jsonhandler import Handler
 
 
 current_directory = os.path.dirname(__file__)

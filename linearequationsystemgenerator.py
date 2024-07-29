@@ -23,7 +23,7 @@ class LinearEquationsSystemGenerator:
         self.reactants_list: list[str] = equation_parser_object.reactants_list
         self.products_list: list[str] = equation_parser_object.products_list
 
-        self.present_elements_in_reaction: list[str] = []
+        self.present_elements_in_reaction_list: list[str] = []
 
         self.parsed_reactants: dict[str, dict[str, str]] = (
             equation_parser_object.parsed_reactants
@@ -67,7 +67,7 @@ class LinearEquationsSystemGenerator:
             element_list.extend(sublist)
 
         element_list = list(set(element_list))
-        self.present_elements_in_reaction = element_list
+        self.present_elements_in_reaction_list = element_list
         self.demand_for_variables_to_solve_count = len(self.reactants_list) + len(
             self.products_list
         )  # Junior code, fix the formula
@@ -97,7 +97,7 @@ class LinearEquationsSystemGenerator:
         left_hand: str = ""
         right_hand: str = ""
 
-        for element in self.present_elements_in_reaction:
+        for element in self.present_elements_in_reaction_list:
             for reactant in self.reactants_list:
                 if element in self.parsed_reactants[reactant]:
                     left_hand += f"{self.parsed_reactants[reactant][element]}*{self.reactants_assigned_parameter_dict[reactant]}+"
