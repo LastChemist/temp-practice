@@ -39,3 +39,15 @@ class EquationParser:
             )
             for species in splitted_equation[1].split(self.species_splitter)
         ]
+
+    def count_elements_in_chemical_specie(self) -> None:
+
+        for reactant in self.reactants_list:
+            self.parsed_reactants[reactant] = elementcounter.ElementCounter(
+                chemical_formula=reactant
+            ).parseFormula()
+
+        for product in self.products_list:
+            self.parsed_products[product] = elementcounter.ElementCounter(
+                chemical_formula=product
+            ).parseFormula()
