@@ -41,7 +41,7 @@ class LinearEquationsSystemGenerator:
             elementmapper.ElementMapper(chemical_formula=chemical_formula).search()
         )
 
-    def present_elements_in_formula(self, chemical_formula: str) -> list:
+    def present_elements_in_chemical_formula(self, chemical_formula: str) -> list:
         return list(
             elementmapper.ElementMapper(chemical_formula=chemical_formula).search()
         )
@@ -54,10 +54,14 @@ class LinearEquationsSystemGenerator:
         products_list: list[str] = self.products_list
 
         for reactant in reactants_list:
-            temp_list.append(self.present_elements_in_formula(chemical_formula=reactant))
+            temp_list.append(
+                self.present_elements_in_chemical_formula(chemical_formula=reactant)
+            )
 
         for product in products_list:
-            temp_list.append(self.present_elements_in_formula(chemical_formula=product))
+            temp_list.append(
+                self.present_elements_in_chemical_formula(chemical_formula=product)
+            )
 
         for sublist in temp_list:
             element_list.extend(sublist)
@@ -86,8 +90,8 @@ class LinearEquationsSystemGenerator:
         self.parameter_symbols = self.parameter_symbols[removing_index + 1 :]
 
     def generate_equations_system(self) -> list:
-       
-        self.assignParameter()
+
+        self.assign_parameter()
         equations_list: list[str] = []
         equation: str = ""
         left_hand: str = ""
