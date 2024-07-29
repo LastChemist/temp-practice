@@ -74,7 +74,7 @@ class LinearEquationsSystemGenerator:
 
     def assign_parameter(self) -> None:
 
-        self.presentElementsInReaction()
+        self.present_elements_in_reaction()
         removing_index: int = 0
 
         for i, reactant in enumerate(self.reactants_list):
