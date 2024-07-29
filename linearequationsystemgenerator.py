@@ -45,3 +45,25 @@ class LinearEquationsSystemGenerator:
         return list(
             elementmapper.ElementMapper(chemical_formula=chemical_formula).search()
         )
+    
+    def present_elements_in_reaction(self) -> list:
+       
+        element_list: list[str] = []
+        temp_list: list = []
+        reactants_list: list[str] = self.reactants_list
+        products_list: list[str] = self.products_list
+
+        for reactant in reactants_list:
+            temp_list.append(self.presentElementsInFormula(chemical_formula=reactant))
+
+        for product in products_list:
+            temp_list.append(self.presentElementsInFormula(chemical_formula=product))
+
+        for sublist in temp_list:
+            element_list.extend(sublist)
+
+        element_list = list(set(element_list))
+        self.present_elements_in_reaction = element_list
+        self.demand_for_variables_to_solve_count = len(self.reactants_list) + len(
+            self.products_list
+        )
