@@ -35,3 +35,10 @@ class LinearEquationsSystemGenerator:
         self.products_assigned_parameter_dict: dict[str, str] = {}
         self.demand_for_variables_to_solve_count: int = 0
         self.parametric_equations_list: list[str] = []
+
+    def parse_elements_in_chemical_formula(self, chemical_formula: list):
+        return list(
+            elementmapper.ElementMapper(chemical_formula=chemical_formula).search()
+        )
+
+
