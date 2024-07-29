@@ -1,3 +1,20 @@
+"""
+This module contains constants used for chemical equation balancing.
+
+Constants:
+----------
+element_list : list[str]
+    A list of all known chemical elements in the periodic table. Each element is represented by its symbol, e.g., 'H' for Hydrogen, 'He' for Helium, etc.
+
+number_list : list[str]
+    A list of digits as strings, from '0' to '9'. This list is used for parsing chemical formulas where the number of atoms is specified.
+
+parameter_symbols : str
+    A string containing all lowercase and uppercase letters of the English alphabet. These symbols are used as parameters in the SymPy library for equation solving.
+
+Docstring by : Copilot
+"""
+
 element_list = [
     "H",
     "He",
