@@ -18,3 +18,8 @@ class Handler:
     def read(self):
         with open(self.file_path, "r") as file:
             self.content = json.load(file)
+    
+    def update(self, key: str, value: any):
+        self.read()
+        self.content[key] = value
+        self.write(content=self.content)
