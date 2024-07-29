@@ -41,4 +41,7 @@ class LinearEquationsSystemGenerator:
             elementmapper.ElementMapper(chemical_formula=chemical_formula).search()
         )
 
-
+    def present_elements_in_formula(self, chemical_formula: str) -> list:
+        return list(
+            elementmapper.ElementMapper(chemical_formula=chemical_formula).search()
+        )
