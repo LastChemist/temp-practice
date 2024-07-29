@@ -51,3 +51,8 @@ class EquationParser:
             self.parsed_products[product] = elementcounter.ElementCounter(
                 chemical_formula=product
             ).parseFormula()
+
+    def parse(self):
+        self.split_equation_into_species()
+        self.count_elements_in_chemical_specie()
+        return [self.parsed_reactants, self.parsed_products]
