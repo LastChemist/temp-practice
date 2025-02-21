@@ -166,7 +166,9 @@ class UI:
     def __init__(self):
         pass
 
-    def create_table(field_names: list, rows: list, divider="-----") -> PrettyTable:
+    def create_table(
+        self, field_names: list, rows: list, divider="-----"
+    ) -> PrettyTable:
         """
         Creates a PrettyTable with the specified field names and rows, adding dividers between rows.
 
